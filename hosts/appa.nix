@@ -69,6 +69,29 @@
     };
   };
 
+  sops.age.keyFile = "/root/.config/sops/age/keys.txt";
+
+  sops.secrets = {
+    "nextcloud-admin-pass" = {
+      sopsFile = ./secrets/nextcloud-secrets.sops.yaml;
+      owner = "nextcloud";
+      mode = "0400";
+      path = "/etc/nextcloud-admin.pass";
+    };
+    "redis-password" = {
+      sopsFile = ./secrets/nextcloud-secrets.sops.yaml;
+      owner = "redis";
+      mode = "0400";
+      path = "/etc/redis-password.secret";
+    };
+    "db-password" = {
+      sopsFile = ./secrets/nextcloud-secrets.sops.yaml;
+      owner = "postgres";
+      mode = "0400";
+      path = "/etc/nextcloud-db.pass";
+    };
+  };
+
   # Optional static IP example (adjust to your LAN)
   # networking.interfaces.enp3s0.ipv4.addresses = [{
   #   address = "192.168.1.100";
