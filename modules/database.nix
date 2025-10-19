@@ -12,10 +12,17 @@
     ];
   };
 
-  services.redis.servers.nextcloud = {
+  services.redis = {
     enable = true;
-    bind = "::1";
-    port = 6379;
-    requirepassFile = "/etc/redis-password.secret";
+    servers = {
+        nextcloud = {
+        enable = true;
+        bind = "::1";
+        port = 6379;
+
+        # Read password from secret file
+        settings.requirepass = builtins.readFile "/etc/redis-password.secret";
+        };
+    };
   };
 }

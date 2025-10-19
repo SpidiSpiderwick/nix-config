@@ -8,6 +8,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
+  inputs.nextcloudPreconfigured.url = "git+https://codeberg.org/Triton171/nixos-nextcloud-preconfigured?ref=main";
+
   outputs = { self, nixpkgs, flake-utils, sops-nix, ... }: {
     nixosConfigurations = {
       appa = nixpkgs.lib.nixosSystem {
