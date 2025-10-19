@@ -16,6 +16,6 @@
     enable = true;
     bind = "::1";
     port = 6379;
-    requirepassFile = "/etc/redis-password.secret";   # you fill this
+    requirepassFile = "/etc/redis-password.secret";
   };
 }

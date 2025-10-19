@@ -4,6 +4,9 @@
   imports = [
     ./../modules/ssh.nix
     ./../modules/users.nix
+    ./../modules/database.nix
+    ./../modules/nginx-acme.nix
+    ./../modules/nextcloud.nix
     ./../hosts/hardware-configuration.nix
   ];
 
@@ -73,19 +76,19 @@
 
   sops.secrets = {
     "nextcloud-admin-pass" = {
-      sopsFile = ./secrets/nextcloud-secrets.sops.yaml;
+      sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
       owner = "nextcloud";
       mode = "0400";
       path = "/etc/nextcloud-admin.pass";
     };
     "redis-password" = {
-      sopsFile = ./secrets/nextcloud-secrets.sops.yaml;
+      sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
       owner = "redis";
       mode = "0400";
       path = "/etc/redis-password.secret";
     };
     "db-password" = {
-      sopsFile = ./secrets/nextcloud-secrets.sops.yaml;
+      sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
       owner = "postgres";
       mode = "0400";
       path = "/etc/nextcloud-db.pass";
