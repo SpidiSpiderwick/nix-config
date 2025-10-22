@@ -15,7 +15,7 @@
     
     # Security
     ../../modules/security/ssh.nix
-    ../../modules/security/sops.nix
+    #../../modules/security/sops.nix
     
     # Users
     ../../modules/users/appa.nix
