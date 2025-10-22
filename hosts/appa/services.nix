@@ -2,30 +2,28 @@
 
 {
   imports = [
-    #../../modules/services/nextcloud
-    #../../modules/services/samba.nix
-    # Add more services as needed
+    ../../modules/services/nextcloud
   ];
   
-  # Service-specific SOPS secrets
-#   sops.secrets = {
-#     "nextcloud-admin-pass" = {
-#       sopsFile = ../../secrets/appa/nextcloud-secrets.sops.yaml;
-#       owner = "nextcloud";
-#       mode = "0400";
-#       path = "/etc/nextcloud-admin.pass";
-#     };
-#     "redis-password" = {
-#       sopsFile = ../../secrets/appa/nextcloud-secrets.sops.yaml;
-#       owner = "redis";
-#       mode = "0400";
-#       path = "/etc/redis-password.secret";
-#     };
-#     "db-password" = {
-#       sopsFile = ../../secrets/appa/nextcloud-secrets.sops.yaml;
-#       owner = "postgres";
-#       mode = "0400";
-#       path = "/etc/nextcloud-db.pass";
-#     };
-#   };
+  # SOPS secrets
+  sops.secrets = {
+    "nextcloud-admin-pass" = {
+      sopsFile = ../../secrets/appa/nextcloud-secrets.sops.yaml;
+      owner = "nextcloud";
+      group = "nextcloud";
+      mode = "0440";
+    };
+    "redis-password" = {
+      sopsFile = ../../secrets/appa/nextcloud-secrets.sops.yaml;
+      owner = "redis-nextcloud";
+      group = "redis-nextcloud";
+      mode = "0440";
+    };
+    "db-password" = {
+      sopsFile = ../../secrets/appa/nextcloud-secrets.sops.yaml;
+      owner = "postgres";
+      group = "postgres";
+      mode = "0440";
+    };
+  };
 }
