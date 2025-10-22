@@ -4,9 +4,7 @@
   imports = [
     ./../modules/ssh.nix
     ./../modules/users.nix
-    ./../modules/database.nix
-    ./../modules/nginx-acme.nix
-    ./../modules/nextcloud.nix
+  #  ./../modules/nextcloud.nix
     ./../hosts/hardware-configuration.nix
   ];
 
@@ -56,6 +54,7 @@
     git
     vim 
     wget
+    claude-code
   ];
 
   environment.variables.EDITOR = "vim"; 
@@ -72,28 +71,16 @@
     };
   };
 
-  sops.age.keyFile = "/root/.config/sops/age/keys.txt";
+  #sops.age.keyFile = pkgs.lib.cleanSource ../age/keys.txt;
 
-  sops.secrets = {
-    "nextcloud-admin-pass" = {
-      sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
-      owner = "nextcloud";
-      mode = "0400";
-      path = "/etc/nextcloud-admin.pass";
-    };
-    "redis-password" = {
-      sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
-      owner = "redis";
-      mode = "0400";
-      path = "/etc/redis-password.secret";
-    };
-    "db-password" = {
-      sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
-      owner = "postgres";
-      mode = "0400";
-      path = "/etc/nextcloud-db.pass";
-    };
-  };
+  #sops.secrets = {
+  #  "nextcloud-admin-pass" = {
+  #    sopsFile = ../secrets/nextcloud-secrets.sops.yaml;
+  #    owner = "nextcloud";
+  #    mode = "0400";
+  #    path = "/etc/nextcloud-admin.pass";
+  #  };
+  #};
 
   # Optional static IP example (adjust to your LAN)
   # networking.interfaces.enp3s0.ipv4.addresses = [{

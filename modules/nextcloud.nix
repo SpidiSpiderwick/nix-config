@@ -1,9 +1,9 @@
-{inputs, pkgs, ...}: {
-  imports = [inputs.nextcloudPreconfigured.nixosModules.default];
+{config, pkgs, nextcloudPreconfigured, ...}: {
+  imports = [nextcloudPreconfigured.nixosModules.default];
   services.nextcloudPreconfigured = {
     enable = true;
 
-    package = pkgs.nextcloud32;
+    package = pkgs.nextcloud31;
     openFirewall = true;
     # Requires `hostName` to be a publicly reachable domain pointed at this server for getting Let's Encrypt certs.
     enableHttps = true;
