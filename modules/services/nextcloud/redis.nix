@@ -5,6 +5,5 @@
     enable = true;
     bind = "::1";
     port = 6379;
-    requirePassFile = "/run/secrets/redis-password";
   };
 }
