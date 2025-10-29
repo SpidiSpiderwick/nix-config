@@ -9,16 +9,16 @@
 
   services.nextcloudPreconfigured = {
     enable = true;
-    package = pkgs.nextcloud32;
+    package = pkgs.nextcloud31;
     openFirewall = true;
-    enableHttps = true;
-    hostName = "cloud.penndorf.dev";
+    enableHttps = false;
+    hostName = "localhost";
     adminuser = "admin";
     adminpassFile = "/run/secrets/nextcloud-admin-pass";
   };
 
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "chpspiderwick@gmail.com";
-  };
+  #security.acme = {
+  #  acceptTerms = true;
+  #  defaults.email = "chpspiderwick@gmail.com";
+  #};
 }

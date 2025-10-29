@@ -5,7 +5,7 @@
   sops = {
     # Location of the AGE private key on the system
     # This file should exist on the host and should NOT be in the git repo
-    age.keyFile = "/root/.config/sops/age/keys.txt";
+    age.keyFile = "home/appa/.config/sops/age/keys.txt";
     
     # Don't set a default sops file - each module specifies its own
     defaultSopsFile = null;
