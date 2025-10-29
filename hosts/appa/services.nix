@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/services/database/postgresql.nix
     ../../modules/services/nextcloud
     ../../modules/services/immich
   ];
