@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/services/nextcloud
+    ../../modules/services/immich
   ];
   
   # SOPS secrets
