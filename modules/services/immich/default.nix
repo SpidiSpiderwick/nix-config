@@ -49,13 +49,4 @@
       '';
     };
   };
-
-  # Ensure PostgreSQL is running
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-  };
-
-  # Open firewall for nginx (already done in main config)
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 }

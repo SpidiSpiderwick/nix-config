@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.nextcloudPreconfigured.nixosModules.default
-    ./database.nix
     ./redis.nix
   ];
 
