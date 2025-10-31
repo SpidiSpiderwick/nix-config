@@ -19,6 +19,9 @@
     
     # Users
     ../../modules/users/appa.nix
+
+    # Storage
+    ../../modules/storage/zfs.nix
     
     # Hardware-specific
     ../../modules/hardware/intel-cpu.nix
