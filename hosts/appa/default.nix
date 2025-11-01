@@ -26,7 +26,7 @@
     
     # Hardware-specific
     ../../modules/hardware/intel-cpu.nix
-    ../../modules/hardware/power.nix
+   # ../../modules/hardware/power.nix
   ];
 
   # Hostname
