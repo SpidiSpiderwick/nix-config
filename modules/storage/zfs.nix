@@ -28,5 +28,6 @@
    "d /storage 0755 root root -"
    "d /storage/nextcloud 0750 nextcloud nextcloud -"
    "d /storage/immich 0750 immich immich -"
+   "d /storage/shares 0775 appa sambashare -"
   ];
 }
