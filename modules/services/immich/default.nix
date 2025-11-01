@@ -23,7 +23,8 @@
     };
     
     # Media location - change this to where you want to store photos
-    mediaLocation = "/var/lib/immich";
+    mediaLocation = "/storage/immich";
+    
   };
 
   # Nginx reverse proxy configuration

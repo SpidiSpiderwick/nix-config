@@ -6,7 +6,7 @@
   boot.zfs.forceImportRoot = false;
   
   # Set a unique host ID (required for ZFS)
-    networking.hostId = "046c8b387c2bc9f2";  
+    networking.hostId = "35d5a9fe";  
   
   # ZFS services
   services.zfs = {
@@ -24,9 +24,9 @@
   boot.zfs.extraPools = [ "storage" ];
   
   # Create mount points
-  #systemd.tmpfiles.rules = [
-  # "d /storage 0755 root root -"
-  # "d /storage/nextcloud 0750 nextcloud nextcloud -"
-  #  "d /storage/immich 0750 immich immich -"
-  #];
+  systemd.tmpfiles.rules = [
+   "d /storage 0755 root root -"
+   "d /storage/nextcloud 0750 nextcloud nextcloud -"
+   "d /storage/immich 0750 immich immich -"
+  ];
 }

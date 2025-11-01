@@ -12,6 +12,8 @@
 
     adminuser = "admin";
     adminpassFile = "/etc/nextcloud-admin.pass";
+    datadir = "/storage/nextcloud/data";
+      
   };
   security.acme = {
     acceptTerms = true;

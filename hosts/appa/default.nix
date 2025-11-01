@@ -22,6 +22,7 @@
 
     # Storage
     ../../modules/storage/zfs.nix
+    ../../modules/storage/samba.nix
     
     # Hardware-specific
     ../../modules/hardware/intel-cpu.nix
@@ -35,13 +36,15 @@
   
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 80 443 ];
+    allowedTCPPorts = [ 22 80 443 139 445];
+    allowedUDPPorts = [ 137 138 ];
   };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Additional kernel modules (for your specific NIC)
   boot.kernelModules = [ "igc" ];
